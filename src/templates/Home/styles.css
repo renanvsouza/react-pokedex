@@ -1,0 +1,19 @@
+.container {
+  background: #eee;
+  padding: 30px;
+}
+
+.button-container {
+  min-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  min-height: 50px;
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
