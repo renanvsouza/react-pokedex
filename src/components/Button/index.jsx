@@ -1,14 +1,14 @@
-import './styles.css'
+import './styles.css';
 
-export default function Button({ text, loadMorePosts, disabled }) {
+export default function Button({ text, onClick, disabled }) {
     return (
         <div className="button-container">
             <button
                 disabled={disabled}
-                onClick={loadMorePosts}
+                onClick={onClick}
             >
                 {text}
             </button>
         </div>
-    )
-}
+    );
+};

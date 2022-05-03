@@ -1,9 +1,9 @@
-import './styles.css'
+import './styles.css';
 
-export default function SearchField({ handleInputChange }) {
-    return (
-        <>
-            <input className='search' type="text" onChange={handleInputChange} name="search" placeholder="Search"></input>
-        </>
-    )
-}
+export default function SearchField({ onChange }) {
+	return (
+		<>
+			<input className='search' type="search" onChange={onChange} name="search" placeholder="Search"></input>
+		</>
+	);
+};
