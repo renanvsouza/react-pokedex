@@ -15,3 +15,101 @@
   .post img {
     max-width: 100%;
   }
+
+	.post h3 > span {
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	width: 50px;
+	border: 2px solid #000;
+	border-radius: 50%;
+	padding: 10px 0;
+	margin-right: 5px;
+	color: #000;
+	background: linear-gradient(0deg, #ffffff 50%, #ff002b 50%);
+  }
+
+  .types {
+	  display: flex;
+	  margin-top: 15px;
+  }
+
+  .types span {
+	display: block;
+	text-align: center;
+	text-transform: capitalize;
+	font-weight: bold;
+	border: none;
+	width: 100px;
+	border-radius: 25px;
+	padding: 10px 0;
+	margin-right: 5px;
+  }
+
+	.water {
+		background: var(--water);
+	}
+
+	.flying{
+		background: var(--flying);
+	}
+
+	.grass {
+		background: var(--grass);
+	}
+
+	.poison {
+		background: var(--poison);
+	}
+
+	.fire {
+		background: var(--fire);
+	}
+
+	.bug {
+		background: var(--bug);
+	}
+
+	.normal {
+		background: var(--normal);
+	}
+
+	.electric {
+		background: var(--electric);
+	}
+
+	.ground {
+		background: var(--ground);
+	}
+
+	.fairy {
+		background: var(--fairy);
+	}
+
+	.fighting {
+		background: var(--fighting);
+	}
+
+	.psychic {
+		background: var(--psychic);
+	}
+
+	.rock {
+		background: var(--rock);
+	}
+
+	.steel {
+		background: var(--steel);
+	}
+
+	.ice {
+		background: var(--ice);
+	}
+
+	.ghost {
+		background: var(--ghost);
+	}
+
+	.dragon {
+		background: var(--dragon);
+	}

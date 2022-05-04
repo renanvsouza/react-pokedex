@@ -1,96 +1,73 @@
-/* eslint-disable react/react-in-jsx-scope */
 import './styles.css';
-import { Component } from 'react';
-import fetchPosts from '../../utils/fetchPosts';
+import { useEffect, useState } from 'react';
 import Posts from '../../components/Posts';
 import Button from '../../components/Button';
 import SearchField from '../../components/SearchField';
+import fetchPokemonData from '../../utils/fetchPokemonData';
 
-export default class Home extends Component {
-	constructor() {
-		super();
-		this.state = {
-			postsShowing: [],
-			allPosts: [],
-			page: 0,
-			postsPerPage: 9,
-			disableButton: false,
-			showingSearch: false
-		};
-	}
+export default function Home() {
 
-	componentDidMount() {
-		this.loadPosts()
-	}
+	const [allPosts, setAllPosts] = useState()
+	const [page, setPage] = useState(0)
+	const [postsPerPage] = useState(9)
+	const [disableButton, setDisabeButton] = useState(false)
+	const [showingSearch, setShowingSearch] = useState(false)
+	const [postsShowing, setPostsShowing] = useState([])
 
-	loadPosts = async () => {
-		const { page, postsPerPage } = this.state
-		const allPosts = await fetchPosts()
-		this.setState({
-			postsShowing: allPosts.slice(page, postsPerPage),
-			allPosts,
-			showingSearch: false
+	//Load posts when component mounts
+	useEffect(() => {
+		fetchPokemonData().then((data) => {
+			setAllPosts(data)
+			setPostsShowing(data.slice(0, 9))
 		})
-	}
+	}, [])
 
-	loadMorePosts = () => {
-		const {
-			postsShowing,
-			allPosts,
-			page,
-			postsPerPage
-		} = this.state
-
+	function loadMorePosts() {
 		const nextPage = page + postsPerPage
 		const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage)
+
 		postsShowing.push(...nextPosts)
 
 		if (postsShowing.length === allPosts.length) {
-			this.setState({
-				disableButton: true
-			})
+			setDisabeButton(true)
 		}
 
-		this.setState({
-			postsShowing,
-			page: nextPage
-		})
+		setPostsShowing(postsShowing)
+		setPage(nextPage)
 	}
 
-	handleInputChange = (e) => {
+	function handleInputChange(e) {
 		let query = e.target.value.toLowerCase()
 
 		if (query === '') {
-			this.loadPosts()
+			setPostsShowing(allPosts.slice(0, 9))
+			setShowingSearch(false)
 		} else {
-			let posts = this.state.allPosts.filter(post => post.title.toLowerCase().includes(query))
-			this.setState({
-				showingSearch: true,
-				postsShowing: posts
-			})
+			let posts = allPosts.filter(post => post.name.toLowerCase().includes(query))
+
+			setShowingSearch(true)
+			setPostsShowing(posts)
 		}
 	}
 
-	render() {
-		const { postsShowing, showingSearch } = this.state
-		return (
-			<div className='container'>
-				<div className='search-container'>
-					<SearchField onChange={this.handleInputChange} />
-				</div>
-				{
-					(postsShowing.length > 0 &&
-						<Posts posts={postsShowing}
-						/>) || (<p>No results found.</p>)
-				}
-				{
-					!showingSearch && <Button
-						text={'Load more'}
-						onClick={this.loadMorePosts}
-						disabled={this.state.disableButton}
-					/>
-				}
+	return (
+		<div className='container'>
+			<div className='search-container'>
+				<SearchField onChange={handleInputChange} />
 			</div>
-		)
-	}
+			{
+				(postsShowing.length > 0 &&
+					<Posts posts={postsShowing}
+					/>) || (<p>No results found.</p>)
+			}
+			{
+				!showingSearch && <Button
+					text={'Load more'}
+					onClick={loadMorePosts}
+					disabled={disableButton}
+				/>
+			}
+		</div>
+	)
+
 }
