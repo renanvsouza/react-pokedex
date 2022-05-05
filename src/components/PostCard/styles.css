@@ -1,22 +1,22 @@
-.post {
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: all 200ms ease-in-out;
-  }
+.card {
+	background: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	transition: all 200ms ease-in-out;
+}
 
-  .post:hover {
-    transform: scale(1.05);
-  }
+.card:hover {
+	transform: scale(1.05);
+}
 
-  .post-content {
-    padding: 30px;
-  }
+.card-content {
+	padding: 30px;
+}
 
-  .post img {
-    max-width: 100%;
-  }
+.card img {
+	max-width: 100%;
+}
 
-	.post h3 > span {
+.card h3>span {
 	display: inline-block;
 	text-align: center;
 	font-weight: bold;
@@ -27,14 +27,14 @@
 	margin-right: 5px;
 	color: #000;
 	background: linear-gradient(0deg, #ffffff 50%, #ff002b 50%);
-  }
+}
 
-  .types {
-	  display: flex;
-	  margin-top: 15px;
-  }
+.types {
+	display: flex;
+	margin-top: 15px;
+}
 
-  .types span {
+.types span {
 	display: block;
 	text-align: center;
 	text-transform: capitalize;
@@ -44,72 +44,72 @@
 	border-radius: 25px;
 	padding: 10px 0;
 	margin-right: 5px;
-  }
+}
 
-	.water {
-		background: var(--water);
-	}
+.water {
+	background: var(--water);
+}
 
-	.flying{
-		background: var(--flying);
-	}
+.flying {
+	background: var(--flying);
+}
 
-	.grass {
-		background: var(--grass);
-	}
+.grass {
+	background: var(--grass);
+}
 
-	.poison {
-		background: var(--poison);
-	}
+.poison {
+	background: var(--poison);
+}
 
-	.fire {
-		background: var(--fire);
-	}
+.fire {
+	background: var(--fire);
+}
 
-	.bug {
-		background: var(--bug);
-	}
+.bug {
+	background: var(--bug);
+}
 
-	.normal {
-		background: var(--normal);
-	}
+.normal {
+	background: var(--normal);
+}
 
-	.electric {
-		background: var(--electric);
-	}
+.electric {
+	background: var(--electric);
+}
 
-	.ground {
-		background: var(--ground);
-	}
+.ground {
+	background: var(--ground);
+}
 
-	.fairy {
-		background: var(--fairy);
-	}
+.fairy {
+	background: var(--fairy);
+}
 
-	.fighting {
-		background: var(--fighting);
-	}
+.fighting {
+	background: var(--fighting);
+}
 
-	.psychic {
-		background: var(--psychic);
-	}
+.psychic {
+	background: var(--psychic);
+}
 
-	.rock {
-		background: var(--rock);
-	}
+.rock {
+	background: var(--rock);
+}
 
-	.steel {
-		background: var(--steel);
-	}
+.steel {
+	background: var(--steel);
+}
 
-	.ice {
-		background: var(--ice);
-	}
+.ice {
+	background: var(--ice);
+}
 
-	.ghost {
-		background: var(--ghost);
-	}
+.ghost {
+	background: var(--ghost);
+}
 
-	.dragon {
-		background: var(--dragon);
-	}
+.dragon {
+	background: var(--dragon);
+}
