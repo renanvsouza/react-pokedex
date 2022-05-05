@@ -59,11 +59,13 @@ export default function Home() {
 				<div className='search-container'>
 					<SearchField onChange={handleInputChange} />
 				</div>
-				{
-					(cardsShowing.length > 0 &&
-						<Cards cards={cardsShowing}
-						/>) || (<p>No results found.</p>)
-				}
+				{cardsShowing.length > 0 ? 
+					<Cards cards={cardsShowing} />
+                    :
+                    <div className='loading'>
+                        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+                    </div>
+                }
 				{
 					!showingSearch && <Button
 						text={'Load more'}
